@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page - CARRUS</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="payment.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navbar (remains the same) -->
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <img src="logo2.png" alt="Logo" class="logo-image">
+        </div>
+        <ul class="navbar-links" id="navbar-links">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#review">Review</a></li>
+        </ul>
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            &#9776;
+        </div>
+        <div class="menu" id="menu">
+            <a href="#" onclick="showSignUp()">Sign Up/Log In</a>
+            <a href="#">FAQs</a>
+            <a href="#">Policies</a>
+            <a href="#">About Us</a>
+            <a href="#">Current Location</a>
+        </div>
+    </nav>
+
+    <!-- Payment Section -->
+    <div class="container py-5">
+        <h2 class="text-center mb-4">Complete Your Payment</h2>
+        <p class="text-center">Choose your preferred payment method to complete your booking.</p>
+
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <!-- Payment Form -->
+                <form onsubmit="redirectToAfterPayment(event)">
+                    <!-- Payment Options -->
+                    <label class="form-label">Payment Method</label>
+                    <select class="form-select mb-3">
+                        <option value="bkash">bKash</option>
+                        <option value="nagad">Nagad</option>
+                        <option value="rocket">Rocket</option>
+                        <option value="credit-card">Credit/Debit Card</option>
+                        <option value="bank-transfer">Bank Transfer</option>
+                    </select>
+
+                    <!-- Payment Details -->
+                    <div class="mb-3">
+                        <label for="amount" class="form-label">Amount (in BDT)</label>
+                        <input type="text" class="form-control" id="amount" placeholder="Enter amount">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="transactionId" class="form-label">Transaction ID (for bKash/Nagad/Rocket)</label>
+                        <input type="text" class="form-control" id="transactionId" placeholder="Enter transaction ID">
+                    </div>
+
+                    <button type="button" class="btn btn-success w-100" onclick="redirectToAfterPayment(event)">Confirm Payment</button> 
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function redirectToAfterPayment(event) {
+            event.preventDefault(); // Prevent form submission
+            window.location.href = "after payment.html"; // Redirect to after_payment.html
+        }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

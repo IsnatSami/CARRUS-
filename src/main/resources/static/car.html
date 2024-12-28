@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Registration</title>
+    <link rel="stylesheet" href="car.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <img src="./logo2.png" alt="Logo" class="logo">
+        </div>
+        <div class="nav-links">
+            <a href="./home.html">Back</a>
+        </div>
+    </nav>
+
+    <div class="row">
+        <!-- Main Form Container for Car -->
+        <div class="container" id="form-container">
+            <h2 id="form-title">Car Registration</h2>
+            <div id="car-form">
+                <form id="car-registration-form" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="registration-number">Registration Number</label>
+                        <input type="text" name="registration-number" id="registration-number" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="make">Make</label>
+                        <input type="text" name="make" id="make" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="model">Car Model</label>
+                        <input type="text" name="model" id="model" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="year">Year</label>
+                        <input type="text" name="year" id="year" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <input type="text" name="category" id="category" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="seat-capacity">Seat Capacity</label>
+                        <input type="text" name="seat-capacity" id="seat-capacity" required>
+                    </div>
+
+                    <!-- Car Photo Upload Section -->
+                    <div class="form-group">
+                        <label for="car-photo-upload">Upload Car Photo</label>
+                        <input type="file" name="car-photo-upload" id="car-photo-upload" accept="image/*" onchange="previewCarPhoto(event)">
+                    </div>
+
+                    <!-- Display Uploaded Car Photo -->
+                    <div class="form-group">
+                        <img id="car-photo-preview" src="default-photo.jpg" alt="Car Photo" class="car-photo">
+                    </div>
+
+                    <button type="submit">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script> function previewCarPhoto(event) {
+        const photo = document.getElementById('car-photo-preview');
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                photo.src = e.target.result; // Set the image source to the uploaded file
+            };
+            reader.readAsDataURL(file); // Read the file as a data URL
+        }
+    }</script>
+    <script src="car.js"></script>
+
+</body>
+</html>
